@@ -2,9 +2,7 @@
 
 namespace Actengage\Sanitize\Sanitizers;
 
-use Actengage\Sanitize\Contracts\Sanitizer;
-
-class Zip implements Sanitizer {
+class Zip {
 
     /**
      * Sanitize an zip code.

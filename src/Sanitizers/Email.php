@@ -2,9 +2,7 @@
 
 namespace Actengage\Sanitize\Sanitizers;
 
-use Actengage\Sanitize\Contracts\Sanitizer;
-
-class Email implements Sanitizer {
+class Email {
 
     /**
      * Sanitize an email address.

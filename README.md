@@ -1,40 +1,76 @@
-# Sluggable
+# Sanitize
 
-A simple package for managing "slugs" to Eloquent models. Sluggable is a trait
-for Eloquent models to ensure a slug exists for the model, and saved it in a
-column
+A collection of classes used to sanitize common things like email, phone, and zip codes.
 
 ### Installation
 
-    composer require actengage/sluggable
+    composer require actengage/sanitize
 
-### Implementation
+### Publish the Config
 
-To implement Sluggable, you just need to assign the `Sluggable` trait to the
-model.
-```
-    namespace App\Page;
+You may optionally publish the config file.
 
-    use Actenage\Sluggable\Sluggable;
-    use Illuminate\Database\Eloquent\Model;
-
-    class Page extends Model {
-
-        use Sluggable;
-
-        protected $fillable = [
-            'title', 'slug'
-        ];
-
-    }
-
+```bash
+php artisan vendor:publish --tag=sanitize-config
 ```
 
-### Basic Example
-```
-$page = Page::create([
-    'title' => 'This is some title'
-]);
+## Basic Example
 
-dd($page->slug); // 'this-is-some-page-title'
+```php
+use Actengage\Sanitize\Facades\Sanitize;
+
+Sanitize::email(' JOHN.doe @gmail '); // johndoe@gmail.com
+Sanitize::phone('(888) 555-1234'); // 8885551234
+Sanitize::zip('12345'); // 12345
+```
+
+## Default Sanitizers
+
+You may add to the default sanitizers in the `config/sanitize.php`.
+
+```php
+<?php
+
+use Actengage\Sanitize\Sanitizers\Email;
+use Actengage\Sanitize\Sanitizers\Phone;
+use Actengage\Sanitize\Sanitizers\Zip;
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Sanitizers
+    |--------------------------------------------------------------------------
+    |
+    | This value is an array of invokable classes that implement the Sanitizer
+    | interface. These are the default macros associated with the Sanitizer
+    | instance.
+    |
+    | use Actengage\Sanitize\Facades\Sanitize;
+    |
+    | Sanitize::email('test @test.com'); // test@test.com
+    | Sanitize::phone('(888) 555-1234'); // 8885551234
+    | Sanitize::zip('12345-1234'); // 123451234
+    |
+    */
+
+    'sanitizers' => [
+        'email' => Email::class,
+        'phone' => Phone::class,
+        'zip' => Zip::class,
+    ]
+];
+```
+
+## Sanitizer Macros
+
+You may also add additional sanitizer functions using the macro.
+
+```php
+
+Sanitize::macro('test', function($value) {
+    return round($value) * 100;
+});
+
+Sanitize::test(100.1234); // 10000
 ```

@@ -27,7 +27,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/sanitize.php' => config_path('sanitize.php'),
-        ]);
+        ], 'sanitize-config');
 
         $this->app->bind('sanitize', function() {
             return new Sanitize(config('sanitize.sanitizers', []));

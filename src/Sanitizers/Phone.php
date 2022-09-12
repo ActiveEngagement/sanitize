@@ -2,9 +2,7 @@
 
 namespace Actengage\Sanitize\Sanitizers;
 
-use Actengage\Sanitize\Contracts\Sanitizer;
-
-class Phone implements Sanitizer {
+class Phone {
 
     /**
      * Sanitize an phone number.
