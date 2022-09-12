@@ -37,7 +37,7 @@ use Actengage\Sanitize\Casts\Zip;
 class User extends Model {
     protected $guarded = [];
 
-    protected $cast = [
+    protected $casts = [
         'email' => Email::class,
         'phone' => Phone::class,
         'zip' => Zip::class,
