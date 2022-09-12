@@ -24,6 +24,36 @@ Sanitize::phone('(888) 555-1234'); // 8885551234
 Sanitize::zip('12345'); // 12345
 ```
 
+## Attribute Casts
+
+You can easily cast Eloquent attribute as sanitized values.
+
+```php
+
+use Actengage\Sanitize\Casts\Email;
+use Actengage\Sanitize\Casts\Phone;
+use Actengage\Sanitize\Casts\Zip;
+
+class User extends Model {
+
+    protected $cast = [
+        'email' => Email::class,
+        'phone' => Phone::class,
+        'zip' => Zip::class,
+    ];
+}
+
+$user = User::create([
+    'email' => 'john.doe@gmail.com',
+    'phone' => '1-800-555-1234',
+    'zip' => '1234',
+])
+
+dd($user->email); // johndoe@gmail.com
+dd($user->phone); // 8005001234
+dd($user->zip); // 01234
+```
+
 ## Default Sanitizers
 
 You may add to the default sanitizers in the `config/sanitize.php`.
