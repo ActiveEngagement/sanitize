@@ -11,5 +11,7 @@ class EmailTest extends TestCase
     {
         $this->assertEquals('test@test.com', Sanitize::email(' TEST @test.com '));
         $this->assertEquals('testtest@gmail.com', Sanitize::email('test.test@gmail.com'));
+        $this->assertEquals(null, Sanitize::email(null));
+        $this->assertEquals(null, Sanitize::email(' '));
     }    
 }

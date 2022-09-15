@@ -19,17 +19,17 @@ class Email {
         return $value;
     }
 
-    protected function removeWhitespace(string $value): string
+    protected function removeWhitespace(?string $value): ?string
     {
         return preg_replace('/\s/', '', $value);
     }
 
-    protected function toLowerCase(string $value): string
+    protected function toLowerCase(?string $value): ?string
     {
         return strtolower($value);
     }
 
-    protected function removePeriodsFromGmail(string $value): string
+    protected function removePeriodsFromGmail(?string $value): ?string
     {
         return preg_replace('/\.(?=.*?@gmail\.com)/', '', $value);
     }
