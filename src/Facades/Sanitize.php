@@ -11,5 +11,8 @@ class Sanitize extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'sanitize'; }
+    protected static function getFacadeAccessor()
+    {
+    return 'sanitize';
+    }
 }

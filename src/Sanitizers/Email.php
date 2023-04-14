@@ -2,12 +2,12 @@
 
 namespace Actengage\Sanitize\Sanitizers;
 
-class Email {
-
+class Email
+{
     /**
      * Sanitize an email address.
      *
-     * @param mixed $value
+     * @param  mixed  $value
      * @return string
      */
     public function __invoke($value)
@@ -33,5 +33,4 @@ class Email {
     {
         return preg_replace('/\.(?=.*?@gmail\.com)/', '', $value);
     }
-
 }

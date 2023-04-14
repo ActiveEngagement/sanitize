@@ -4,7 +4,7 @@ namespace Actengage\Sanitize\Casts;
 
 use Actengage\Sanitize\Facades\Sanitize;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
- 
+
 class Phone implements CastsAttributes
 {
     /**
@@ -20,7 +20,7 @@ class Phone implements CastsAttributes
     {
         return Sanitize::phone($value);
     }
- 
+
     /**
      * Prepare the given value for storage.
      *

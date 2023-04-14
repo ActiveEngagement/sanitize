@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Actengage\Sanitize\Facades\Sanitize;
+use Tests\TestCase;
 
 class EmailTest extends TestCase
 {
@@ -13,5 +13,5 @@ class EmailTest extends TestCase
         $this->assertEquals('testtest@gmail.com', Sanitize::email('test.test@gmail.com'));
         $this->assertEquals(null, Sanitize::email(null));
         $this->assertEquals(null, Sanitize::email(' '));
-    }    
+    }
 }

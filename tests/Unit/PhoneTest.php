@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Actengage\Sanitize\Facades\Sanitize;
+use Tests\TestCase;
 
 class PhoneTest extends TestCase
 {
@@ -14,5 +14,5 @@ class PhoneTest extends TestCase
         $this->assertEquals('8005551234', Sanitize::phone('1-800-555-1234'));
         $this->assertEquals('8005551234', Sanitize::phone('1-800-555-1234 x1234'));
         $this->assertNull(Sanitize::phone('555123'));
-    }    
+    }
 }

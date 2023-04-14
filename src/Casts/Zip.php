@@ -4,7 +4,7 @@ namespace Actengage\Sanitize\Casts;
 
 use Actengage\Sanitize\Facades\Sanitize;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
- 
+
 class Zip implements CastsAttributes
 {
     /**
@@ -20,7 +20,7 @@ class Zip implements CastsAttributes
     {
         return Sanitize::zip($value);
     }
- 
+
     /**
      * Prepare the given value for storage.
      *

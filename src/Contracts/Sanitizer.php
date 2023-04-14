@@ -2,14 +2,13 @@
 
 namespace Actengage\Sanitize\Contracts;
 
-interface Sanitizer {
-
+interface Sanitizer
+{
     /**
      * Define the sanitizer class.
      *
-     * @param mixed $value
+     * @param  mixed  $value
      * @return mixed
      */
     public function __invoke($value);
-
 }

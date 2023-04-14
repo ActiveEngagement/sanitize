@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Actengage\Sanitize\Facades\Sanitize;
+use Tests\TestCase;
 
 class ZipTest extends TestCase
 {
@@ -14,5 +14,5 @@ class ZipTest extends TestCase
         $this->assertEquals('90210-1234', Sanitize::zip('90210-1234'));
         $this->assertNull(Sanitize::zip('902101'));
         $this->assertNull(Sanitize::zip('90210-12345'));
-    }    
+    }
 }

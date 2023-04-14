@@ -27,5 +27,5 @@ return [
         'email' => Email::class,
         'phone' => Phone::class,
         'zip' => Zip::class,
-    ]
+    ],
 ];
