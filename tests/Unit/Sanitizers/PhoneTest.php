@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Sanitizers;
 
 use Actengage\Sanitize\Facades\Sanitize;
 use Tests\TestCase;

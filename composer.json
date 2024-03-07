@@ -1,7 +1,7 @@
 {
     "name": "actengage/sanitize",
     "description": "A collection of common sanitizer functions.",
-    "keywords": ["sanitize", "emails", "phone"],
+    "keywords": ["sanitize", "validation", "emails", "phone", "zip"],
     "license": "MIT",
     "authors": [
         {
@@ -9,10 +9,15 @@
             "email": "jkimbrell@actengage.com"
         }
     ],
+    "scripts": {
+        "test": "phpunit"
+    },
     "require": {
         "php": "^8.1",
-        "laravel/framework": "^9.0|^10.0",
-        "illuminate/support": "^10.0"
+        "laravel/framework": "^9.0|^10.0|^11.0",
+        "illuminate/support": "*",
+        "illuminate/validation": "*",
+        "illuminate/contracts": "*"
     },
     "require-dev": {
         "orchestra/testbench": "^8.0",
