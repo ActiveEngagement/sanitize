@@ -2,6 +2,7 @@
 
 namespace Actengage\Sanitize\Rules;
 
+use Actengage\Sanitize\Facades\Sanitize;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
@@ -17,7 +18,7 @@ class Zip implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $sanitized = app('sanitize')->zip($value);
+        $sanitized = Sanitize::zip($value);
 
         if(!$sanitized) {
             $fail('The :attribute must be a valid zip code.');

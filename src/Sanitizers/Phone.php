@@ -20,14 +20,16 @@ class Phone
             return;
         }
 
-        // Replace leading 0
-        if (substr($value, 0, 1) == 0) {
-            $value = substr($value, 1);
-        }
+        if(strlen($value) > 10) {
+            // Replace leading 0
+            if (substr($value, 0, 1) == 0) {
+                $value = substr($value, 1);
+            }
 
-        // Replace leading 1
-        elseif (substr($value, 0, 1) == 1) {
-            $value = substr($value, 1);
+            // Replace leading 1
+            elseif (substr($value, 0, 1) == 1) {
+                $value = substr($value, 1);
+            }
         }
 
         // Invalidate the number if the city area code is "555"
@@ -35,7 +37,14 @@ class Phone
             return;
         }
 
-        // Return only the first 10 digits in case an extension was added...
-        return substr($value, 0, 10);
+        // Get only the first 10 digits in case an extension was added...
+        $value = substr($value, 0, 10);
+
+        // If the phone starts with a 1 or 0, it is not valid.
+        if(in_array(substr($value, 0, 1), ['0', '1'])) {
+            return null;
+        }
+
+        return $value;
     }
 }

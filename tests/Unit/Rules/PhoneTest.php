@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Rules;
 
+use Actengage\Sanitize\Facades\Sanitize;
 use Actengage\Sanitize\Rules\Phone;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
@@ -19,6 +20,7 @@ class PhoneTest extends TestCase
         $this->assertFalse(Validator::make(['phone' => '567123'], $rules)->passes());
         $this->assertFalse(Validator::make(['phone' => '5551212'], $rules)->passes());
         $this->assertFalse(Validator::make(['phone' => '8005551212'], $rules)->passes());
+        $this->assertFalse(Validator::make(['phone' => '(123) 123-1234'], $rules)->passes());
         
         $this->assertSame([
             'The phone must be a valid phone number.'

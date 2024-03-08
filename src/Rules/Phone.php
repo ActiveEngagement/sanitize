@@ -2,6 +2,7 @@
 
 namespace Actengage\Sanitize\Rules;
 
+use Actengage\Sanitize\Facades\Sanitize;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
@@ -17,7 +18,7 @@ class Phone implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if(!app('sanitize')->phone($value)) {
+        if(!Sanitize::phone($value)) {
             $fail('The :attribute must be a valid phone number.');
         }
     }
