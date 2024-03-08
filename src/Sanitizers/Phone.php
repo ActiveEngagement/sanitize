@@ -30,6 +30,11 @@ class Phone
             $value = substr($value, 1);
         }
 
+        // Invalidate the number if the city area code is "555"
+        if (substr($value, 3, 3) == 555) {
+            return;
+        }
+
         // Return only the first 10 digits in case an extension was added...
         return substr($value, 0, 10);
     }
