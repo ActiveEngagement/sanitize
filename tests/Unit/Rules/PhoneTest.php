@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\Rules;
 
-use Actengage\Sanitize\Facades\Sanitize;
 use Actengage\Sanitize\Rules\Phone;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;

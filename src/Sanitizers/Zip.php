@@ -2,15 +2,17 @@
 
 namespace Actengage\Sanitize\Sanitizers;
 
-class Zip
+use Actengage\Sanitize\Contracts\Sanitizer;
+
+class Zip implements Sanitizer
 {
     /**
      * Sanitize an zip code.
      *
-     * @param  mixed  $value
-     * @return string
+     * @param string|null  $value
+     * @return string|null
      */
-    public function __invoke($value)
+    public function __invoke(?string $value): ?string
     {
         $zip = preg_replace('/[^\-\d]/', '', $value ?: ''); // remove spaces and letters
 

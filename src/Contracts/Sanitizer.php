@@ -7,8 +7,8 @@ interface Sanitizer
     /**
      * Define the sanitizer class.
      *
-     * @param  mixed  $value
-     * @return mixed
+     * @param string|null $value
+     * @return string|null
      */
-    public function __invoke($value);
+    public function __invoke(?string $value): ?string;
 }

@@ -2,22 +2,24 @@
 
 namespace Actengage\Sanitize\Sanitizers;
 
-class Phone
+use Actengage\Sanitize\Contracts\Sanitizer;
+
+class Phone implements Sanitizer
 {
     /**
      * Sanitize an phone number.
      *
-     * @param  mixed  $value
-     * @return string
+     * @param string|null $value
+     * @return string|null
      */
-    public function __invoke($value)
+    public function __invoke(?string $value): ?string
     {
         // Replace all formatting characters.
         $value = preg_replace('/[^\d]/', '', trim($value));
 
         // Return null if less than 10 digits. Not a valid number.
         if (strlen($value) < 10) {
-            return;
+            return null;
         }
 
         if(strlen($value) > 10) {
@@ -34,7 +36,7 @@ class Phone
 
         // Invalidate the number if the city area code is "555"
         if (substr($value, 3, 3) == 555) {
-            return;
+            return null;
         }
 
         // Get only the first 10 digits in case an extension was added...
