@@ -19,7 +19,7 @@ class Phone implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if(!Sanitize::phone($value)) {
-            $fail('The :attribute must be a valid phone number.');
+            $fail('Please enter a valid phone number.');
         }
     }
 }

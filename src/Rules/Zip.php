@@ -21,7 +21,7 @@ class Zip implements ValidationRule
         $sanitized = Sanitize::zip($value);
 
         if(!$sanitized) {
-            $fail('The :attribute must be a valid zip code.');
+            $fail('Please enter a valid zip code.');
         }
     }
 }

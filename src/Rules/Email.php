@@ -21,7 +21,7 @@ class Email implements ValidationRule
         $sanitized = Sanitize::email($value);
 
         if(!$sanitized) {
-            $fail('The :attribute must be a valid email address.');
+            $fail('Please enter a valid email address.');
         }
     }
 }
